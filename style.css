@@ -1,0 +1,341 @@
+/*-----------------------CABEZA DE PAGINA--------------------------*/
+header {
+    background-color: rgba(0, 0, 0, 0); /* Transparencia total del fondo */
+    background-repeat: no-repeat, no-repeat;
+    background-size: 12%, 13%;
+    transition: background-image 0.3s ease-in-out;
+}
+
+.logo-container {
+    /* Define el tamaño y la posición para que ocupe solo el área del logo */
+    width: 10%; /* Ajusta este valor al tamaño que quieres que ocupe el logo */
+    height: 210px; /* Un valor de ejemplo; ajústalo a la altura de tu imagen */
+    
+    /* Configuración de las imágenes como fondo de este contenedor */
+    background-position: center center; /* o ajusta a 150px 15px, según tu original */
+    background-image: url("Logo.png"), url("Roca.png");
+    background-repeat: no-repeat, no-repeat;
+    background-size: 100% 100%; /* Para que la imagen ocupe todo el contenedor */
+    
+    /* Mueve la transición aquí */
+    transition: background-image 0.3s ease-in-out; 
+    
+    /* Posiciona el contenedor dentro del header (ejemplo, puede variar) */
+    position: absolute; /* Podría necesitarse si quieres el posicionamiento exacto */
+    left: 140px; 
+    top: 30px;
+}
+
+/* 3. APLICA EL HOVER SOLO AL CONTENEDOR DEL LOGO */
+.logo-container:hover {
+    /* Solo se activa al pasar el ratón sobre el área definida por .logo-container */
+    background-image: url("Logo_Lum.png"), url("Roca_Lum.png");
+}
+
+.Borde-header{
+    width: 25%;
+    height: 60px;
+    background-size: 100%;
+    background-image: url("Borde.png");
+    background-position: center;
+    z-index: 100;
+    position: absolute;
+    left: 0px;
+    top: 240px;
+}
+
+/*--------------------------CUERPO DE PAGINA-----------------------*/
+
+html, body{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #313335;
+    margin: 0;
+    padding: 0;
+}
+
+/*------------------------BOTONES GENERALES------------------------*/
+
+.botones {
+    display: flex;
+    justify-content: right;
+    padding-top: 150px;
+    padding-right: 200px;
+    padding-bottom: 60px;
+    gap: 10px; /* Agrega un espacio entre los botones para que no se peguen */
+}
+
+
+.btn {
+    display: block; /* Asegura que el enlace se comporte como un bloque */
+    width: 150px;  /* Define un ancho fijo para cada botón */
+    height: 50px; /* Define una altura fija para cada botón */
+    background-image: url('img-1.png'); /* Imagen por defecto */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.3s ease-in-out; /* Transición suave */
+    /*texto del boton*/
+    font-display: block;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px; 
+    font-family: 'Macondo Swash Caps', serif; /* La fuente de reserva 'serif' es buena para estilos antiguos */	
+    font-size: 0.9em; /* Ajusta el tamaño para que coincida con tu diseño */	
+    color: #FFE7B1; /* Un marrón dorado oscuro para simular la piedra o madera vieja */	
+    text-transform: uppercase; /* Si tu texto no es ya en mayúsculas, esto lo hará */	 
+    letter-spacing: 2px; /* Espaciado entre letras para un look más "tallado" */	
+    text-shadow:	
+    1px 1px 2px rgba(0, 0, 0, 0.7), /* Sombra ligera para darle profundidad */	
+    -1px -1px 2px rgba(255, 255, 255, 0.3); /* Un pequeño "highlight" para bordes */
+}
+
+.btn:hover {
+    background-image: url('img-2.png'); /* La imagen que se muestra al pasar el cursor */
+    cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+/* 1. Contenedor principal con el fondo y la animación de borde */
+.fondo {
+    position: relative;
+    background-color: #1a1a1a; 
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Aplicar la animación de borde al fondo */
+    animation: borde-parpadeante 10s infinite;
+}
+
+/* 2. La Imagen Oculta */
+.imagen-secreta {
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 5;
+    animation: parpadeo-imagen 10s infinite; 
+}
+
+/* 3. Definición de la Animación para el BORDE (¡Ajustada con INSET!) */
+@keyframes borde-parpadeante {
+    0%, 100% {
+        /* Borde apagado: Sombra muy sutil o nula (o un borde oscuro simulado) */
+        box-shadow: inset 0 0 5px rgba(255, 255, 255, 0); /* Importante: inset */
+    }
+    10% {
+        /* Parpadeo de luz visible: Una sombra interna grande y brillante */
+        box-shadow: inset 0 0 100px rgba(255, 255, 255, 0.8), /* Brillo blanco intenso, hacia adentro */
+                    inset 0 0 50px rgba(0, 150, 255, 0.5);   /* Opcional: un toque de color azul para el aura, hacia adentro */
+    }
+    11% {
+        /* Se apaga inmediatamente */
+        box-shadow: inset 0 0 5px rgba(255, 255, 255, 0); 
+    }
+    90% {
+        /* Permanece apagado la mayor parte del tiempo */
+        box-shadow: inset 0 0 5px rgba(255, 255, 255, 0); 
+    }
+}
+
+/* 4. Definición de la Animación para la IMAGEN (Se mantiene igual para sincronizar) */
+@keyframes parpadeo-imagen {
+    0%, 100% {
+        opacity: 0; 
+        filter: blur(5px); 
+    }
+    10% { 
+        opacity: 1; 
+        filter: blur(0);
+    }
+    11% { 
+        opacity: 0; 
+    }
+    90% {
+        opacity: 0; 
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*para superponer cosas*/
+/*
+#btn1::after {
+    content: "";
+    display: block;
+    
+    /* 1. Definir un TAMAÑO fijo para la imagen de la palabra */
+   /* height: 90px;  /* AJUSTE ESTE ANCHO (ejemplo) */
+    
+    /* 2. Posicionamiento ABSOLUTO para superponerlo */
+    /*position: relative;
+    top: 50%;   /* Mueve el borde superior al centro vertical del botón */
+    /*left: 50%;  /* Mueve el borde izquierdo al centro horizontal del botón */
+    
+    /* 3. ¡Centrado Mágico! Compensa la mitad de su propio tamaño */
+    /*transform: translate(-50%, -50%); 
+    
+    /* 4. Propiedades de la imagen "Juegos.png" */
+    /*background-image: url('Juegos.png'); 
+    background-size: contain; /* Ajusta la imagen al nuevo tamaño (80x30) */
+    /*background-position: center;
+    background-repeat: no-repeat;
+    z-index: 2;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----------------------------------------------------------------------*/
+/*.boton4 {
+  position: relative;
+  width: 120px;
+  height: 80px;
+  margin-left: 1.3%;
+  margin-right: 1.3%;
+  margin-top: 0.2%;
+  overflow: hidden;
+  border-radius: 20%;
+  border: 1px solid;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  transition: 0.5s;
+  letter-spacing: 1px;
+  background-image: url("server3.jpeg");
+  background-size: cover;
+}
+
+.boton4 button {
+  width: 101%;
+  height: 100%;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: 1px;
+  background: #000;
+  opacity: 0.8;
+  -webkit-mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png");
+  mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png");
+  -webkit-mask-size: 2300% 100%;
+  mask-size: 2300% 100%;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  -webkit-animation: ani2 0.7s steps(22) forwards;
+  animation: ani2 0.7s steps(22) forwards;
+}
+
+.boton4 button:hover {
+  -webkit-animation: ani 0.7s steps(22) forwards;
+  animation: ani 0.7s steps(22) forwards;
+}
+
+.boton4:hover {
+    transform: scale(1.5);
+    
+}
+
+@-webkit-keyframes ani {
+  from {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+}
+@keyframes ani {
+  from {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+}
+@-webkit-keyframes ani2 {
+  from {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+  to {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+}*/
