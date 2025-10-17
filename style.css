@@ -7,17 +7,21 @@ header {
 }
 
 .logo-container {
-    /* Eliminamos: position: absolute; left: 140px; top: 30px; */
-    /* Usamos un ancho máximo en 'vw' (viewport width) para que escale */
-    width: 25vw; /* Aproximadamente 25% del ancho de la ventana */
-    max-width: 250px; /* Asegura que no crezca demasiado en pantallas grandes */
+    /* Mantenemos las dimensiones y fondos */
+    width: 25vw;
+    max-width: 250px; 
     height: 210px; 
-    
     background-position: center center;
     background-image: url("Logo.png"), url("Roca.png");
     background-repeat: no-repeat, no-repeat;
-    background-size: contain; /* 'contain' es mejor que 100% 100% para evitar distorsión */
+    background-size: contain;
     transition: background-image 0.3s ease-in-out; 
+    
+    /* ELIMINAMOS EL MARGIN AUTOMÁTICO que causa centrado */
+    /* margin: 0 auto; */
+    
+    /* Agregamos 'display: block' para que 'text-start' en el padre funcione */
+    display: block; 
 }
 
 /* El hover se mantiene */
@@ -48,15 +52,16 @@ html, body{
 
 /*------------------------BOTONES GENERALES------------------------*/
 
-.botones {
-    /* Ya no necesitamos padding-right/top/bottom ni justify-content: right */
-    /* Usamos clases de Bootstrap en el HTML (mx-2) y flex de CSS para centrar */
+.botones-flex {
+    /* ELIMINAMOS todas las propiedades de posicionamiento manuales */
+    /* justify-content: right; (Lo reemplazamos con justify-content-end de Bootstrap) */
+    /* padding-top: 150px; (Lo reemplazamos con pt-3 en el logo y ajuste de margenes) */
+    /* padding-right: 200px; (Lo reemplazamos con pe-5 en el HTML) */
+    
+    /* Mantenemos el Flexbox */
     display: flex;
-    justify-content: center; /* ¡Centrar es más responsive que justificar a la derecha! */
-    align-items: center; /* Alinea verticalmente si los botones tienen diferente altura */
-    padding: 20px 0; /* Espaciado vertical adaptable */
+    align-items: center; 
     gap: 10px; 
-    /* Agregamos flex-wrap para que los botones se envuelvan en pantallas pequeñas */
     flex-wrap: wrap; 
 }
 
